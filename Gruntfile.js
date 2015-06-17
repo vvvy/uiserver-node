@@ -10,6 +10,7 @@ module.exports = function(grunt) {
       '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+      
     // Task configuration.
     concat: {
       options: {
@@ -74,6 +75,25 @@ module.exports = function(grunt) {
         }
     },
     
+    bower_concat: {
+      all: {
+        dest: 'static/js.js',
+        cssDest: 'static/css.css'/*,
+        exclude: [
+          'jquery',
+          'modernizr'
+        ],
+        dependencies: {
+          'underscore': 'jquery',
+          'backbone': 'underscore',
+          'jquery-mousewheel': 'jquery'
+        },
+        bowerOptions: {
+          relative: false
+        }*/
+      }
+    },    
+    
     express: {
         options: {
           // Override defaults here
@@ -104,11 +124,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-express-server');
-
+  grunt.loadNpmTasks('grunt-bower-concat');
+  grunt.loadNpmTasks('grunt-nodemon');
+  
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify', 'bower_concat']);
   
   //Express dev task
   grunt.registerTask('dev', ['express:dev', 'watch:express_dev']);
+  grunt.registerTask('prod', ['express:prod']);
+  
 
 };

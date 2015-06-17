@@ -1,0 +1,20 @@
+{
+  "name": "uiserver-node",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/vvvy/uiserver-node",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "git://github.com/zurb/bower-foundation#~5.5.2"
+  }
+}
