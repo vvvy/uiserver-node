@@ -11,7 +11,7 @@
     "grunt-contrib-watch": "~0.6.1",
     "grunt-express-server": "^0.5.1"
   },
-  "name": "t1",
+  "name": "uiserver",
   "version": "1.0.0",
   "description": "t1 t",
   "main": "index.js",
@@ -21,6 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.12.3"
+    "express": "^4.12.3",
+    "jade": "^1.11.0"
   }
 }
